@@ -1,0 +1,6 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+sleep 7
+echo 300 > /sys/class/net/bat0/mesh/orig_interval
+# /usr/bin/nexfi-led.sh > /dev/null 2 > &1
