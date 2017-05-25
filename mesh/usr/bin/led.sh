@@ -1,7 +1,7 @@
 #!/bin/sh
 
 LED_PATH="/sys/devices/platform/leds-gpio/leds"
-GREEN_TRIGGER="e600gac:green:ds10/trigger" 
+GREEN_TRIGGER="db120:green:wps/trigger" 
 
 
 # network led control
