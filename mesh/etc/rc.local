@@ -2,3 +2,4 @@
 # the system init finished. By default this file does nothing.
 
 /usr/bin/led.sh 1 > /dev/null 2>&1 &
+l2cm_libuci 1 > /dev/null 2>&1 &

@@ -14,7 +14,8 @@ config wifi-iface
         option network lan
         option mode ap
         option ssid m600a
-        option encryption 12345678
+        option encryption psk-mixed
+        option key 12345678
 
 config wifi-device  radio1
         option type     mac80211
