@@ -1,13 +1,21 @@
 #!/bin/sh
 
 LED_PATH="/sys/devices/platform/leds-gpio/leds"
-GREEN_TRIGGER="db120:green:wps/trigger" 
+WPS_TRIGGER="db120:green:wps/trigger" 
+WLAN_2G_TRIGGER="db120:green:wlan-2g/brightness" 
+STATUS_TRIGGER="db120:green:status/brightness" 
 
 
 # network led control
 trig_green()
 {
-    echo $1 > $LED_PATH/$GREEN_TRIGGER
+    echo $1 > $LED_PATH/$WPS_TRIGGER
+}
+
+trig_off()
+{
+    echo 0 > $LED_PATH/$STATUS_TRIGGER 
+    echo 0 > $LED_PATH/$WLAN_2G_TRIGGER 
 }
 
 # network led finite state machine.
@@ -60,6 +68,7 @@ net_led_fsm()
     fi
 }
 
+trig_off
 
 trig_green "none"
 net_led_fsm_init
