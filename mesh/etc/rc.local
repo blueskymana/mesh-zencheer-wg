@@ -2,4 +2,18 @@
 # the system init finished. By default this file does nothing.
 
 /usr/bin/led.sh 1 > /dev/null 2>&1 &
-l2cm_libuci 1 > /dev/null 2>&1 &
+
+# start l2cm_libuci process for topology 
+
+while [ 1 ];
+do
+    ret=$(ifconifg | grep br-lan | awk -F " " '{print $1}')
+    echo "$ret"
+    if [ ! -z "$ret" ];
+    then
+        echo "start l2cm_libuci"
+        l2cm_libuci > /dev/null &
+        break
+    fi
+    sleep 1
+done
